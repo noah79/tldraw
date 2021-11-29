@@ -5,8 +5,7 @@ interface HTMLContainerProps extends React.HTMLProps<HTMLDivElement> {
   children: React.ReactNode
 }
 
-export const HTMLContainer = observer(
-  React.forwardRef<HTMLDivElement, HTMLContainerProps>(function HTMLContainer(
+export const HTMLContainer = observer<HTMLContainerProps, HTMLDivElement>(function HTMLContainer(
     { children, ...rest },
     ref
   ) {
@@ -15,5 +14,4 @@ export const HTMLContainer = observer(
         {children}
       </div>
     )
-  })
-)
+  }, {forwardRef: true})
